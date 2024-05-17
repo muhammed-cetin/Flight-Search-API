@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FlightRequest {
-    private String departureAirport;
-    private String arrivalAirport;
+    private Long departureAirport;
+    private Long arrivalAirport;
     private LocalDateTime departureDate;
     private LocalDateTime returnDate;
     private BigDecimal price;

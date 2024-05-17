@@ -2,8 +2,8 @@ package com.cetin.flightsearchapi.mapper;
 
 import com.cetin.flightsearchapi.entity.Flight;
 import com.cetin.flightsearchapi.model.SearchResponse;
-import com.cetin.flightsearchapi.model.response.DepartureResponse;
-import com.cetin.flightsearchapi.model.response.ReturnResponse;
+import com.cetin.flightsearchapi.model.response.DepartureFlightResponse;
+import com.cetin.flightsearchapi.model.response.ReturnFlightResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 @Component
 public class SearchMapper {
 
-    private DepartureResponse mapToDepartureResponse(Flight flight) {
-        return DepartureResponse.builder()
+    private DepartureFlightResponse mapToDepartureResponse(Flight flight) {
+        return DepartureFlightResponse.builder()
                 .departureAirport(flight.getDepartureAirport().getCity())
                 .arrivalAirport(flight.getArrivalAirport().getCity())
                 .departureDate(flight.getDepartureDate())
@@ -21,8 +21,8 @@ public class SearchMapper {
     }
 
     // Flight nesnesini ReturnResponse nesnesine dönüştürmek flight.getDepartureAirport().getCity()
-    private ReturnResponse mapToReturnResponse(Flight flight) {
-        return ReturnResponse.builder()
+    private ReturnFlightResponse mapToReturnResponse(Flight flight) {
+        return ReturnFlightResponse.builder()
                 .departureAirport(flight.getArrivalAirport().getCity())
                 .arrivalAirport(flight.getDepartureAirport().getCity())
                 .returnDate(flight.getReturnDate())
@@ -33,8 +33,8 @@ public class SearchMapper {
     public SearchResponse mapToSearchResponse(Flight flight) {
         return SearchResponse.builder()
                 .id(flight.getId())
-                .round(mapToDepartureResponse(flight))
-                .trip(mapToReturnResponse(flight))
+                .departureFlight(mapToDepartureResponse(flight))
+                .returnFlight(mapToReturnResponse(flight))
                 .price(flight.getPrice())
                 .build();
     }
@@ -43,7 +43,7 @@ public class SearchMapper {
     public SearchResponse mapToSearchResponseOneWay(Flight flight) {
         return SearchResponse.builder()
                 .id(flight.getId())
-                .round(mapToDepartureResponse(flight))
+                .departureFlight(mapToDepartureResponse(flight))
                 .price(flight.getPrice())
                 .build();
     }

@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DepartureResponse {
+public class ReturnFlightResponse {
     private String departureAirport;
     private String arrivalAirport;
-    private LocalDateTime departureDate;
+    private LocalDateTime returnDate;
 }

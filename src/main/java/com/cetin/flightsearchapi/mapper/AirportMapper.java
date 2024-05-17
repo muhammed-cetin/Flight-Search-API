@@ -12,21 +12,21 @@ public class AirportMapper {
 
 
     // Airport nesnesini AirportDto nesnesine dönüştürmek
-    public AirportResponse convertToDto(Airport airport) {
+    public AirportResponse convertToAirportDto(Airport airport) {
         return AirportResponse.builder()
                 .id(airport.getId())
                 .city(airport.getCity())
                 .build();
     }
 
-    /*public List<AirportDto> convertToDtoList(List<Airport> airports) {
-        return airports.stream().map(this::convertToDto).collect(Collectors.toList());
+    /*public List<AirportDto> convertToAirportDtoList(List<Airport> airports) {
+        return airports.stream().map(this::convertToAirportDto).collect(Collectors.toList());
     }*/
 
-    public List<AirportResponse> convertToDtoList(List<Airport> airports) {
+    public List<AirportResponse> convertToAirportDtoList(List<Airport> airports) {
         List<AirportResponse> airportResponse = new ArrayList<>();
         for (Airport airport : airports) {
-            airportResponse.add(convertToDto(airport));
+            airportResponse.add(convertToAirportDto(airport));
         }
         return airportResponse;
     }

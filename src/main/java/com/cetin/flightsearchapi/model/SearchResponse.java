@@ -1,7 +1,7 @@
 package com.cetin.flightsearchapi.model;
 
-import com.cetin.flightsearchapi.model.response.DepartureResponse;
-import com.cetin.flightsearchapi.model.response.ReturnResponse;
+import com.cetin.flightsearchapi.model.response.DepartureFlightResponse;
+import com.cetin.flightsearchapi.model.response.ReturnFlightResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,9 +17,9 @@ import java.math.BigDecimal;
 public class SearchResponse {
 
     private Long id;
-    private DepartureResponse round;
+    private DepartureFlightResponse departureFlight;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private ReturnResponse trip;
+    private ReturnFlightResponse returnFlight;
     private BigDecimal price;
 }

@@ -1,15 +1,11 @@
 package com.cetin.flightsearchapi.mapper;
 
 import com.cetin.flightsearchapi.entity.Flight;
-import com.cetin.flightsearchapi.model.SearchResponse;
-import com.cetin.flightsearchapi.model.response.DepartureResponse;
 import com.cetin.flightsearchapi.model.response.FlightResponse;
-import com.cetin.flightsearchapi.model.response.ReturnResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class FlightMapper {

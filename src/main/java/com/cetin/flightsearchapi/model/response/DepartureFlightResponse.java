@@ -1,6 +1,5 @@
 package com.cetin.flightsearchapi.model.response;
 
-import com.cetin.flightsearchapi.entity.Airport;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,8 +11,8 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReturnResponse {
+public class DepartureFlightResponse {
     private String departureAirport;
     private String arrivalAirport;
-    private LocalDateTime returnDate;
+    private LocalDateTime departureDate;
 }
