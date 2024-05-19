@@ -10,7 +10,6 @@ import java.util.List;
 @Component
 public class FlightMapper {
 
-    // Flight nesnesini FlightDto nesnesine dönüştürmek
     public FlightResponse convertToFlightDto(Flight flight) {
         return FlightResponse.builder()
                 .id(flight.getId())
@@ -22,10 +21,6 @@ public class FlightMapper {
                 .build();
     }
 
-    /*public List<FlightDto> convertToFlightDtoList(List<Flight> flights) {
-        return flights.stream().map(this::convertToFlightDto).collect(Collectors.toList());
-    }*/
-
     public List<FlightResponse> convertToFlightDtoList(List<Flight> flights) {
         List<FlightResponse> flightResponse = new ArrayList<>();
         for (Flight flight : flights) {
@@ -33,5 +28,4 @@ public class FlightMapper {
         }
         return flightResponse;
     }
-
 }

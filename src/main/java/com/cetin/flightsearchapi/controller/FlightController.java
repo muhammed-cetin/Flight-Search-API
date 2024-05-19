@@ -5,6 +5,7 @@ import com.cetin.flightsearchapi.model.request.FlightRequest;
 import com.cetin.flightsearchapi.model.response.FlightResponse;
 import com.cetin.flightsearchapi.service.FlightService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,10 +43,14 @@ public class FlightController {
         return ResponseEntity.ok(flight);
     }
 
+    /*@PostMapping
+    public ResponseEntity<FlightResponse> createFlight(@RequestBody FlightRequest flightRequest) {
+        return ResponseEntity.ok(flightService.createFlight(flightRequest));
+    }*/
+
     @PostMapping
     public ResponseEntity<FlightResponse> createFlight(@RequestBody FlightRequest flightRequest) {
-        FlightResponse createdFlight = flightService.createFlight(flightRequest);
-        return ResponseEntity.ok(createdFlight);
+        return new ResponseEntity<>(flightService.createFlight(flightRequest), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
@@ -57,7 +62,7 @@ public class FlightController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteFlight(@PathVariable Long id) {
         flightService.deleteFlight(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
 }

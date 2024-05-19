@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 @Component
 public class SearchMapper {
 
+    // Flight nesnesini Kalkış için oluşturulan DepartureFlightResponse classını dönüştürmek
     private DepartureFlightResponse mapToDepartureResponse(Flight flight) {
         return DepartureFlightResponse.builder()
                 .departureAirport(flight.getDepartureAirport().getCity())
@@ -20,7 +21,7 @@ public class SearchMapper {
                 .build();
     }
 
-    // Flight nesnesini ReturnResponse nesnesine dönüştürmek flight.getDepartureAirport().getCity()
+    // Flight nesnesini Kalkış için oluşturulan ReturnFlightResponse nesnesine dönüştürmek
     private ReturnFlightResponse mapToReturnResponse(Flight flight) {
         return ReturnFlightResponse.builder()
                 .departureAirport(flight.getArrivalAirport().getCity())
@@ -39,7 +40,7 @@ public class SearchMapper {
                 .build();
     }
 
-    // Flight nesnesini SearchResponse nesnesine dönüştürmek
+    // Flight nesnesini SearchResponse nesnesine dönüştürmek (tek yönlü)
     public SearchResponse mapToSearchResponseOneWay(Flight flight) {
         return SearchResponse.builder()
                 .id(flight.getId())
